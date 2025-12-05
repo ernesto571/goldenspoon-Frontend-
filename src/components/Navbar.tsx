@@ -92,7 +92,7 @@ function Navbar() {
         ></div>
       )}
 
-<div
+      <div
         className={`fixed top-0 left-0 z-50 h-full w-[50%] md:w-[40%] lg:w-[20%] bg-[#fff3eb] shadow-lg transform transition-transform duration-300 ease-in-out
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
         <div className="flex flex-col w-full gap-6 pt-6 font-bold text-gray-800">
@@ -176,7 +176,7 @@ function Navbar() {
           <NavLink
           to="/sign-in"
           className={({ isActive }) =>
-            `transition-all px-3 py-1 rounded-full font-medium hidden md:flex lg:flex ${
+            `transition-all px-3 py-1 rounded-full font-medium  ${
               isActive
                 ? "bg-[#157c6e] text-white shadow-md"
                 : "text-[#157c6e] hover:bg-[#157c6e] hover:bg-opacity-10"
@@ -193,3 +193,4 @@ function Navbar() {
 }
 
 export default Navbar;
+
