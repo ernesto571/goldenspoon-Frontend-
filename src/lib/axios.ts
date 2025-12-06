@@ -1,9 +1,7 @@
 import axiosLib from "axios";
 
 const axios = axiosLib.create({
-  baseURL: import.meta.env.DEV
-    ? "http://localhost:3000/api"
-    : "https://goldenspoon-backend.onrender.com/api",
+  baseURL:"https://goldenspoon-backend.onrender.com/api",
 });
 
 axios.interceptors.request.use(async (config) => {
@@ -46,3 +44,4 @@ axios.interceptors.response.use(
 );
 
 export default axios;
+
