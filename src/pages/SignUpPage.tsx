@@ -6,7 +6,7 @@ function SignUpPage() {
 
         {/* right hand section */}
         <section className=" bg-[#fff3ec]">
-          <div className="w-[95%] md:w-[90%] place-content-center lg:w-[70%] mx-auto ">
+          <div className="w-[93%] md:w-[90%] lg:w-[70%] mx-auto ">
             <h1 className="mt-4 text-[1.7rem] font-bold font-serif  text-[#3f5d43]">Let's Get Started !</h1>
             <p className="mt-2 mb-5 font-bold font-serif  text-[#3f5d43]">Unlock a world of flavour.</p>
             <SignUp 
@@ -25,5 +25,6 @@ function SignUpPage() {
       </main>
   );
 }
+
 
 export default SignUpPage;
