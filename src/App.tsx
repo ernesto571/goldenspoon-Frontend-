@@ -21,6 +21,8 @@ import AppetizersPage from "./pages/AppetizersPage";
 import PurchaseSuccessPage from "./pages/PurchaseSuccessPage";
 import PurchaseCancelPage from "./pages/PurchaseCancelPage";
 import OrdersPage from "./pages/OrdersPage";
+import AuthListener from "./hooks/AuthListener";
+
 
 
 function App() {
@@ -58,6 +60,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <AuthListener/>
       <div className="min-h-screen bg-gray-50">
         <Navbar />
         <Routes>
