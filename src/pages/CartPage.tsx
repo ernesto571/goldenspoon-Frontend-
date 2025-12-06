@@ -117,7 +117,7 @@ function CartPage() {
             <p className="text-xl text-gray-500">Your cart is empty</p>
             <p className="text-gray-400 mt-2">Add some delicious items to get started!</p>
             <button onClick={() => navigate("/my-orders")} 
-              className="px-6 py-2 mt-4 text-[0.8rem]  md:text-base lg:text-base rounded-full font-semibold text-white bg-[#157c6e] hover:bg-[#116257] transition-colors shadow-lg flex items-center gap-2 max-w-[50%] mx-auto ">
+              className="px-6 py-2 mt-4 text-[0.8rem]  md:text-base lg:text-base rounded-full font-semibold text-white bg-[#157c6e] hover:bg-[#116257] transition-colors shadow-lg flex items-center gap-2 max-w-[90%] mx-auto ">
                 View Previous Orders <ChevronRight className="size-[1rem] md:size-[1.5rem] lg:size-base"/>
               </button>
             
@@ -315,5 +315,6 @@ function CartPage() {
     </main>
   );
 }
+
 
 export default CartPage;
