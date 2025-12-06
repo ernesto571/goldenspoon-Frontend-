@@ -114,7 +114,7 @@ export const useCartStore = create<CartStore>()(
           console.error("Add to Cart Error:", error);
           const errorMessage = error.response?.data?.message || "Failed to add item to cart.";
           set({ error: errorMessage, isLoading: false });
-          toast.error( "Failed to add item to cart. Please, make sure you are logged in.");
+          toast.error( errorMessage);
         }
       },
 
@@ -230,4 +230,5 @@ updateQuantity: async (menu_id, new_quantity) => {
       partialize: (state) => ({ cartItems: state.cartItems })
     }
   )
+
 );
