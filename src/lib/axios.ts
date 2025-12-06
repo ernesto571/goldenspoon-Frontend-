@@ -2,27 +2,21 @@ import axiosLib from "axios";
 
 const axios = axiosLib.create({
   baseURL: import.meta.env.DEV
-    ? "http://localhost:3000/api"
+    ? "http://localhost:5000/api"
     : "https://goldenspoon-backend.onrender.com/api",
+  withCredentials: true
 });
 
 axios.interceptors.request.use(async (config) => {
-  console.log("🌐 Making request to:", config.url);
-
-  const token = await window.Clerk?.session?.getToken();
-  console.log("🔑 Token exists:", !!token);
+  const token = await window.Clerk?.session?.getToken({
+    template: "backend"
+  });
 
   if (token) {
-    // Ensure headers exists AND is the correct type
-    if (!config.headers) {
-      console.error("no header")
-    }
-
-    // Now safely mutate
-    (config.headers as any).Authorization = `Bearer ${token}`;
-    console.log("✅ Authorization header set");
-  } else {
-    console.warn("⚠️ No token found!");
+    config.headers = {
+      ...config.headers,
+      Authorization: `Bearer ${token}`
+    };
   }
 
   return config;
@@ -30,17 +24,14 @@ axios.interceptors.request.use(async (config) => {
 
 
 axios.interceptors.response.use(
-  (response) => {
-    console.log("✅ Response from:", response.config.url, response.status);
-    return response;
-  },
+  (response) => response,
   (error) => {
-    console.error("❌ Request failed:", {
+    console.error("❌ Request error:", {
       url: error.config?.url,
       status: error.response?.status,
-      message: error.message,
       data: error.response?.data,
     });
+
     return Promise.reject(error);
   }
 );
