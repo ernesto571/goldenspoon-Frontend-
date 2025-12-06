@@ -57,7 +57,6 @@ function Navbar() {
         </button>
           <img
             src="icon.png"
-            alt="Golden Spoon icon"
             className="w-15 h-9 rounded-full object-contain"
           />
           <h2 className="text-[1.2rem] hidden md:flex lg:flex text-[#157c6e] font-bold">
@@ -193,4 +192,5 @@ function Navbar() {
 }
 
 export default Navbar;
+
 
