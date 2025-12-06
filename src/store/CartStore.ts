@@ -114,7 +114,7 @@ export const useCartStore = create<CartStore>()(
           console.error("Add to Cart Error:", error);
           const errorMessage = error.response?.data?.message || "Failed to add item to cart.";
           set({ error: errorMessage, isLoading: false });
-          toast.error( errorMessage);
+          toast.error("Failed to add item to cart. Please, make sure you are logged in.");
         }
       },
 
@@ -232,3 +232,4 @@ updateQuantity: async (menu_id, new_quantity) => {
   )
 
 );
+
