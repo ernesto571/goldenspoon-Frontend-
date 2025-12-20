@@ -9,25 +9,27 @@ interface AdminState {
 
 export const useAdminStore = create<AdminState>((set) => ({
   isAdmin: false,
-  loading: true,
-  
+  loading: false,
+   
   checkAdmin: async () => {
     set({ loading: true });
+  
     try {
       const res = await axios.get("/admin/check");
-      
-      // Fixed: Access the correct path in the response
-      // Backend returns: { success: true, data: { isAdmin: true } }
-      const isAdmin = res.data?.data?.isAdmin || false;
-      
-      console.log("✅ Admin check response:", res.data);
+  
+      const isAdmin = Boolean(res.data?.data?.isAdmin);
       set({ isAdmin, loading: false });
-      
+  
     } catch (err: any) {
+      if (err.response?.status === 401) {
+        // Not signed in
+        set({ isAdmin: false, loading: false });
+        return;
+      }
+  
       console.error("❌ Check admin failed:", err.response?.data || err.message);
-      
-      // User is either not authenticated or not an admin
       set({ isAdmin: false, loading: false });
     }
-  },
+  }
+  
 }));
