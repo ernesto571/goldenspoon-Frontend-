@@ -96,7 +96,7 @@ function App() {
             path="/admin"
             element={
               <ProtectedRoute>
-                {isAdmin ? <AdminHomePage /> : <Navigate to="/" replace />}
+                {isAdmin ? <AdminHomePage /> : <HomePage />}
               </ProtectedRoute>
             }
           />
