@@ -24,7 +24,6 @@ import OrdersPage from "./pages/OrdersPage";
 import AuthListener from "./hooks/AuthListener";
 
 
-
 function App() {
   const { isSignedIn, isLoaded: clerkLoaded } = useUser();
   const { isAdmin, loading: adminLoading, checkAdmin } = useAdminStore();
@@ -54,9 +53,10 @@ function App() {
     );
   }
 
-  if(!isSignedIn){
-    <Navigate to="/sign-in"/>
+  if (!isSignedIn) {
+    return <Navigate to="/sign-in" replace />;
   }
+  
 
   return (
     <BrowserRouter>
