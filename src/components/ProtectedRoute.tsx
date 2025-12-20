@@ -20,7 +20,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
   // If not signed in, redirect to home
   if (!isSignedIn) {
     console.log("❌ Not signed in, redirecting to home");
-    return <Navigate to="/sign-in" />;
+    return <Navigate to="/sign-in" replace />;
   }
   
   // If signed in, show the protected content
